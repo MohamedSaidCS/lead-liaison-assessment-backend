@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use App\Models\Todo;
 
 class TodoController extends Controller
 {
@@ -14,18 +15,18 @@ class TodoController extends Controller
      */
     public function index(): JsonResponse
     {
-        return response()->json('index');
+        return response()->json(Todo::all());
     }
 
     /**
      * Retrieve a single Todo.
      *
-     * @param int $id
+     * @param Todo $todo
      * @return JsonResponse
      */
-    public function show(int $id): JsonResponse
+    public function show(Todo $todo): JsonResponse
     {
-        return response()->json('show');
+        return response()->json($todo);
     }
 
     /**
