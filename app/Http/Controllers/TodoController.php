@@ -3,31 +3,62 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class TodoController extends Controller
 {
-    public function index()
+    /**
+     * Retrieve all Todos.
+     *
+     * @return JsonResponse
+     */
+    public function index(): JsonResponse
     {
-        return 'index';
+        return response()->json('index');
     }
 
-    public function show($id)
+    /**
+     * Retrieve a single Todo.
+     *
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function show(int $id): JsonResponse
     {
-        return 'show';
+        return response()->json('show');
     }
 
-    public function store(Request $request)
+    /**
+     * Create a Todo.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function store(Request $request): JsonResponse
     {
-        return 'store';
+        return response()->json('store');
     }
 
-    public function update(Request $request, $id)
+    /**
+     * Update a Todo.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function update(Request $request, int $id): JsonResponse
     {
-        return 'update';
+        return response()->json('update');
     }
 
-    public function destroy($id)
+    /**
+     * Delete a Todo.
+     *
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function destroy(int $id): JsonResponse
     {
-        return 'destroy';
+        return response()->json('destroy');
     }
 }
