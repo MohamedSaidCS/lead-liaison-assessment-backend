@@ -46,23 +46,27 @@ class TodoController extends Controller
     /**
      * Update a Todo.
      *
-     * @param Request $request
-     * @param int $id
+     * @param StoreUpdateTodoRequest $request
+     * @param Todo $todo
      * @return JsonResponse
      */
-    public function update(Request $request, int $id): JsonResponse
+    public function update(StoreUpdateTodoRequest $request, Todo $todo): JsonResponse
     {
-        return response()->json('update');
+        $todo->update($request->validated());
+
+        return response()->json($todo);
     }
 
     /**
      * Delete a Todo.
      *
-     * @param int $id
+     * @param Todo $todo
      * @return JsonResponse
      */
-    public function destroy(int $id): JsonResponse
+    public function destroy(Todo $todo): JsonResponse
     {
-        return response()->json('destroy');
+        $todo->delete();
+
+        return response()->json(null, 204);
     }
 }

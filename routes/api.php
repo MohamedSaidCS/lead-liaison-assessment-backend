@@ -23,6 +23,6 @@ Route::prefix('todos')->controller(TodoController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/{todo}', 'show');
     Route::post('/', 'store');
-    Route::put('/{id}', 'update');
-    Route::delete('/{id}', 'destroy');
+    Route::put('/{todo}', 'update');
+    Route::delete('/{todo}', 'destroy');
 });
