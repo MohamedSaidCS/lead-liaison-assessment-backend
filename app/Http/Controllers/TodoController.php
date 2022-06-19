@@ -69,4 +69,17 @@ class TodoController extends Controller
 
         return response()->json(null, 204);
     }
+
+    /**
+     * Complete a Todo.
+     *
+     * @param Todo $todo
+     * @return JsonResponse
+     */
+    public function complete(Todo $todo): JsonResponse
+    {
+        $todo->completed = true;
+        $todo->save();
+        return response()->json($todo);
+    }
 }
