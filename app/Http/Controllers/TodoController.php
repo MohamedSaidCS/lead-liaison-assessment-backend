@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateTodoRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\Todo;
@@ -32,12 +33,14 @@ class TodoController extends Controller
     /**
      * Create a Todo.
      *
-     * @param Request $request
+     * @param StoreUpdateTodoRequest $request
      * @return JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(StoreUpdateTodoRequest $request): JsonResponse
     {
-        return response()->json('store');
+        $todo = Todo::create($request->validated());
+
+        return response()->json($todo, 201);
     }
 
     /**
