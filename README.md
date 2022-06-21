@@ -2,6 +2,10 @@
 
 # Lead Liaison Assessment - Backend
 
+# Technologies used
+1) Laravel
+2) MySQL
+
 ## [Frontend](https://github.com/MohamedSaidCS/lead-liaison-assessment-frontend)
 
 # Instructions
